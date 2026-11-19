@@ -1,0 +1,1065 @@
+{
+ "v": 2,
+ "atualizado": "2026-11-19T01:59:57.794Z",
+ "heroTone": "claro",
+ "fields": {
+  "hero-tag": "Arquitetura e urbanismo · Viçosa-MG",
+  "hero-titulo": "Tudo é ao seu redor *arquitetura.*",
+  "hero-desc": "Projeto, aprovação e acompanhamento de obras residenciais, comerciais e institucionais, com mais de 25 anos de atuação em Viçosa.",
+  "sobre-titulo": "Arquiteto e urbanista, formado pela UFV",
+  "sobre-p1": "Atuo há mais de 25 anos em projetos arquitetônicos, da concepção à aprovação nos órgãos competentes. Trabalho de forma autônoma e em contato direto com o cliente em todas as etapas.",
+  "sobre-p2": "Participo dos conselhos municipais de patrimônio e de planejamento de Viçosa, o que traz o conhecimento prático da legislação urbanística local para dentro de cada projeto.",
+  "s1v": "25+",
+  "s1l": "anos de atuação",
+  "s2v": "UFV",
+  "s2l": "formação",
+  "s3v": "A30214-7",
+  "s3l": "registro CAU",
+  "contato-titulo": "Vamos conversar sobre o seu projeto",
+  "galeria-titulo": "Projetos em imagens",
+  "processo-titulo": "Como funciona o projeto"
+ },
+ "images": {
+  "foto": "fotos/mwmwkciq-0.jpg",
+  "hero": ""
+ },
+ "projects": [
+  {
+   "id": 1,
+   "nome": "Edifício misto – Rua Virgílio Val",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Morar em cima, movimento embaixo. O embasamento abriga galeria comercial com panos de vidro voltados para a rua, marquise contínua e jardim vertical no acesso; acima, a torre residencial com varandas de guarda-corpo de vidro e forro amadeirado. Viçosa-MG.",
+   "img": "p01-1.jpg",
+   "imgs": [
+    {
+     "img": "p01-2.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2026-11-16"
+  },
+  {
+   "id": 3,
+   "nome": "Edifício de uso misto – comercial e residencial",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Térreo comercial com lojas voltadas para a rua, garagem sob pilotis e pavimentos residenciais acima. Na esquina, a jardineira sobre a marquise suaviza a escala do edifício na calçada. Viçosa-MG.",
+   "img": "p03-1.jpg",
+   "imgs": [
+    {
+     "img": "p03-2.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2026-10-30"
+  },
+  {
+   "id": 4,
+   "nome": "Residência Reserva Real",
+   "cat": "Residencial",
+   "ano": "",
+   "desc": "Residência em Viçosa-MG apresentada em prancha única: perspectivas, ficha técnica, quadro de áreas, plantas, cortes e fachada na mesma escala.",
+   "img": "p04-1.jpg",
+   "imgs": [],
+   "post": "2026-10-23"
+  },
+  {
+   "id": 6,
+   "nome": "Residência em Viçosa",
+   "cat": "Residencial",
+   "ano": "",
+   "desc": "Residência de dois pavimentos com varanda, piscina e estudo em maquete física. Viçosa-MG.",
+   "img": "p06-1.jpg",
+   "imgs": [
+    {
+     "img": "p06-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p06-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2026-10-06"
+  },
+  {
+   "id": 5,
+   "nome": "Residencial Multifamiliar – Bairro Inácio Martins",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Estrutura concluída e vedações em execução: os volumes e balanços do projeto já aparecem na obra. As imagens comparam o projeto com a obra em andamento. Viçosa-MG.",
+   "img": "p05-1.jpg",
+   "imgs": [
+    {
+     "img": "p05-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p05-3.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p05-4.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2026-10-20"
+  },
+  {
+   "id": 2,
+   "nome": "Centro de Distribuição – Mundial Acabamentos",
+   "cat": "Comercial",
+   "ano": "",
+   "desc": "Projeto pensado para a logística: docas cobertas, pátio de manobra dimensionado para carga e descarga, fluxos separados de veículos leves e pesados e bloco administrativo integrado ao galpão. Viçosa-MG.",
+   "img": "p02-1.jpg",
+   "imgs": [],
+   "post": "2026-11-13"
+  },
+  {
+   "id": 7,
+   "nome": "Edifício Residencial",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício residencial em Viçosa-MG.",
+   "img": "p07-1.jpg",
+   "imgs": [],
+   "post": "2026-09-23"
+  },
+  {
+   "id": 8,
+   "nome": "Edifício Iracema",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício em Viçosa-MG, obra concluída.",
+   "img": "p08-1.jpg",
+   "imgs": [
+    {
+     "img": "p08-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p08-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2026-04-07"
+  },
+  {
+   "id": 9,
+   "nome": "Edifício Residencial",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício residencial multifamiliar, com estudo de fachada em diferentes horários.",
+   "img": "p09-1.jpg",
+   "imgs": [
+    {
+     "img": "p09-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p09-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2026-02-07"
+  },
+  {
+   "id": 10,
+   "nome": "Residência em Araponga",
+   "cat": "Residencial",
+   "ano": "2017",
+   "desc": "Residência com piscina e varanda integrada à paisagem. Araponga-MG.",
+   "img": "p10-1.jpg",
+   "imgs": [
+    {
+     "img": "p10-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p10-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2026-02-05"
+  },
+  {
+   "id": 11,
+   "nome": "Espaço Gourmet",
+   "cat": "Residencial",
+   "ano": "",
+   "desc": "Espaço gourmet em estrutura de madeira, integrado ao jardim. Viçosa-MG.",
+   "img": "p11-1.jpg",
+   "imgs": [
+    {
+     "img": "p11-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p11-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2026-01-15"
+  },
+  {
+   "id": 12,
+   "nome": "Edifício comercial e residencial – Porto Firme",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Lojas no térreo e apartamentos nos pavimentos superiores. Porto Firme-MG.",
+   "img": "p12-1.jpg",
+   "imgs": [
+    {
+     "img": "p12-2.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2026-01-14"
+  },
+  {
+   "id": 13,
+   "nome": "Edifício Residencial Multifamiliar",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício residencial multifamiliar.",
+   "img": "p13-1.jpg",
+   "imgs": [],
+   "post": "2026-01-07"
+  },
+  {
+   "id": 14,
+   "nome": "Edifício comercial e garagem – Barbacena",
+   "cat": "Comercial",
+   "ano": "",
+   "desc": "Edifício comercial com edifício-garagem. Barbacena-MG.",
+   "img": "p14-1.jpg",
+   "imgs": [],
+   "post": "2025-06-03"
+  },
+  {
+   "id": 15,
+   "nome": "Edifício comercial e residencial",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício com lojas no térreo e apartamentos nos pavimentos superiores. Viçosa-MG.",
+   "img": "p15-1.jpg",
+   "imgs": [
+    {
+     "img": "p15-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p15-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2025-04-08"
+  },
+  {
+   "id": 16,
+   "nome": "Edifício Prof. Marcondes",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício residencial com base comercial. Viçosa-MG.",
+   "img": "p16-1.jpg",
+   "imgs": [
+    {
+     "img": "p16-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p16-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2024-08-29"
+  },
+  {
+   "id": 17,
+   "nome": "Edifício misto – obra concluída",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício misto em Viçosa-MG, obra concluída.",
+   "img": "p17-1.jpg",
+   "imgs": [
+    {
+     "img": "p17-2.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2024-08-07"
+  },
+  {
+   "id": 18,
+   "nome": "Restauração e modernização de imóvel histórico",
+   "cat": "Patrimônio",
+   "ano": "",
+   "desc": "Casarão com vitrais e esquadrias originais, em projeto de restauração e modernização. Viçosa-MG.",
+   "img": "p18-1.jpg",
+   "imgs": [
+    {
+     "img": "p18-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p18-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2024-08-05"
+  },
+  {
+   "id": 19,
+   "nome": "Edifício misto – obra",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Acompanhamento da obra de edifício misto em Viçosa-MG.",
+   "img": "p19-1.jpg",
+   "imgs": [
+    {
+     "img": "p19-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p19-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2024-03-15"
+  },
+  {
+   "id": 20,
+   "nome": "Condomínio Alameda Boulevard",
+   "cat": "Residencial",
+   "ano": "",
+   "desc": "Residência em condomínio fechado. Viçosa-MG.",
+   "img": "p20-1.jpg",
+   "imgs": [
+    {
+     "img": "p20-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p20-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2024-03-12"
+  },
+  {
+   "id": 21,
+   "nome": "Monumento do Ex-Aluno da UFV",
+   "cat": "Institucional",
+   "ano": "2013–2023",
+   "desc": "Sonho do Prof. Dudu, ex-presidente da associação, iniciado por volta de 2013. Depois de muitas ideias, obstáculos e trabalho, o monumento ficou definitivo dentro do campus da Universidade Federal de Viçosa.",
+   "img": "p21-1.jpg",
+   "imgs": [
+    {
+     "img": "p21-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p21-3.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p21-4.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p21-5.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-12-08"
+  },
+  {
+   "id": 22,
+   "nome": "Residência em Viçosa",
+   "cat": "Residencial",
+   "ano": "",
+   "desc": "Residência com varandas e cobertura em balanço. Viçosa-MG.",
+   "img": "p22-1.jpg",
+   "imgs": [
+    {
+     "img": "p22-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p22-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-12-07"
+  },
+  {
+   "id": 23,
+   "nome": "Projeto em edifício histórico",
+   "cat": "Patrimônio",
+   "ano": "",
+   "desc": "Novo projeto com o desafio de preservar o patrimônio arquitetônico da cidade. Viçosa-MG.",
+   "img": "p23-1.jpg",
+   "imgs": [],
+   "post": "2023-11-29"
+  },
+  {
+   "id": 24,
+   "nome": "Amantino Supermercado",
+   "cat": "Comercial",
+   "ano": "",
+   "desc": "Projeto de supermercado em Viçosa-MG.",
+   "img": "p24-1.jpg",
+   "imgs": [
+    {
+     "img": "p24-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p24-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-11-16"
+  },
+  {
+   "id": 25,
+   "nome": "Edifício comercial e residencial – início das obras",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Lojas e apartamentos de 3 e 4 dormitórios. Viçosa-MG.",
+   "img": "p25-1.jpg",
+   "imgs": [],
+   "post": "2023-11-03"
+  },
+  {
+   "id": 26,
+   "nome": "Residência em obra",
+   "cat": "Residencial",
+   "ano": "",
+   "desc": "Residência em andamento. Viçosa-MG.",
+   "img": "p26-1.jpg",
+   "imgs": [
+    {
+     "img": "p26-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p26-3.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p26-4.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-31"
+  },
+  {
+   "id": 27,
+   "nome": "Edificação comercial em estrutura de madeira",
+   "cat": "Comercial",
+   "ano": "",
+   "desc": "Edificação comercial em estrutura de eucalipto. Viçosa-MG.",
+   "img": "p27-1.jpg",
+   "imgs": [
+    {
+     "img": "p27-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p27-3.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p27-4.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-30"
+  },
+  {
+   "id": 28,
+   "nome": "Edifício Chateau Duvalier",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício residencial e comercial. Viçosa-MG.",
+   "img": "p28-1.jpg",
+   "imgs": [
+    {
+     "img": "p28-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p28-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-26"
+  },
+  {
+   "id": 29,
+   "nome": "Edifício Alphaville",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Dois blocos e uma galeria comercial: Bloco 1 residencial e Bloco 2 comercial. Em parceria com o arq. Fernando Zacarias. Viçosa-MG.",
+   "img": "p29-1.jpg",
+   "imgs": [
+    {
+     "img": "p29-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p29-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-24"
+  },
+  {
+   "id": 30,
+   "nome": "Edifício Vitarelli – Annaya Suítes",
+   "cat": "Hotelaria",
+   "ano": "",
+   "desc": "Edifício hoteleiro em Viçosa-MG.",
+   "img": "p30-1.jpg",
+   "imgs": [
+    {
+     "img": "p30-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p30-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-22"
+  },
+  {
+   "id": 31,
+   "nome": "Edifício Airton Vidigal Santana",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício residencial com base comercial. Viçosa-MG.",
+   "img": "p31-1.jpg",
+   "imgs": [
+    {
+     "img": "p31-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p31-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-19"
+  },
+  {
+   "id": 32,
+   "nome": "Residência em Viçosa",
+   "cat": "Residencial",
+   "ano": "",
+   "desc": "Projeto arquitetônico; complementares e execução por @taylonemartins_. Viçosa-MG.",
+   "img": "p32-1.jpg",
+   "imgs": [
+    {
+     "img": "p32-2.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-17"
+  },
+  {
+   "id": 33,
+   "nome": "Alfa Hotel",
+   "cat": "Hotelaria",
+   "ano": "",
+   "desc": "Projeto de hotel e edifício misto com térreo comercial. Viçosa-MG.",
+   "img": "p33-1.jpg",
+   "imgs": [
+    {
+     "img": "p33-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p33-3.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p33-4.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-15"
+  },
+  {
+   "id": 34,
+   "nome": "Edifício José Bernardes Santana",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício misto. Viçosa-MG.",
+   "img": "p34-1.jpg",
+   "imgs": [
+    {
+     "img": "p34-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p34-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-11"
+  },
+  {
+   "id": 35,
+   "nome": "Edifício Erly Brandão",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício misto. Viçosa-MG.",
+   "img": "p35-1.jpg",
+   "imgs": [
+    {
+     "img": "p35-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p35-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-10"
+  },
+  {
+   "id": 36,
+   "nome": "Edifício Myrthes Pereira",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício misto. Viçosa-MG.",
+   "img": "p36-1.jpg",
+   "imgs": [
+    {
+     "img": "p36-2.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-09"
+  },
+  {
+   "id": 37,
+   "nome": "Residência em Viçosa",
+   "cat": "Residencial",
+   "ano": "",
+   "desc": "Residência acompanhada da obra ao projeto concluído. Viçosa-MG.",
+   "img": "p37-1.jpg",
+   "imgs": [
+    {
+     "img": "p37-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p37-3.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p37-4.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p37-5.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-07"
+  },
+  {
+   "id": 38,
+   "nome": "Residência em Patos de Minas",
+   "cat": "Residencial",
+   "ano": "",
+   "desc": "Residência em Patos de Minas-MG.",
+   "img": "p38-1.jpg",
+   "imgs": [
+    {
+     "img": "p38-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p38-3.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p38-4.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-06"
+  },
+  {
+   "id": 39,
+   "nome": "Residência em Viçosa",
+   "cat": "Residencial",
+   "ano": "",
+   "desc": "Residência com escadas externas e varandas. Viçosa-MG.",
+   "img": "p39-1.jpg",
+   "imgs": [
+    {
+     "img": "p39-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p39-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-06"
+  },
+  {
+   "id": 40,
+   "nome": "Edifício Monte Hemon",
+   "cat": "Comercial",
+   "ano": "",
+   "desc": "Edifício comercial. Viçosa-MG.",
+   "img": "p40-1.jpg",
+   "imgs": [
+    {
+     "img": "p40-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p40-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-05"
+  },
+  {
+   "id": 41,
+   "nome": "UAES – Unidade de Atenção Especializada em Saúde",
+   "cat": "Institucional",
+   "ano": "",
+   "desc": "Cliente: Universidade Federal de Viçosa. Viçosa-MG.",
+   "img": "p41-1.jpg",
+   "imgs": [
+    {
+     "img": "p41-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p41-3.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p41-4.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-04"
+  },
+  {
+   "id": 42,
+   "nome": "Edifício residencial – Ervália",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício residencial em Ervália-MG.",
+   "img": "p42-1.jpg",
+   "imgs": [
+    {
+     "img": "p42-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p42-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-03"
+  },
+  {
+   "id": 43,
+   "nome": "Edifício de uso misto – Ponte Nova",
+   "cat": "Edifícios",
+   "ano": "",
+   "desc": "Edifício com base comercial curva. Ponte Nova-MG.",
+   "img": "p43-1.jpg",
+   "imgs": [
+    {
+     "img": "p43-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p43-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-10-02"
+  },
+  {
+   "id": 44,
+   "nome": "Edifício comercial",
+   "cat": "Comercial",
+   "ano": "",
+   "desc": "Edifício comercial com fachada em vidro e moldura. Viçosa-MG.",
+   "img": "p44-1.jpg",
+   "imgs": [
+    {
+     "img": "p44-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p44-3.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-09-29"
+  },
+  {
+   "id": 45,
+   "nome": "Supermercado Guarapiranga",
+   "cat": "Comercial",
+   "ano": "",
+   "desc": "Edifício comercial. Ponte Nova-MG.",
+   "img": "p45-1.jpg",
+   "imgs": [
+    {
+     "img": "p45-2.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p45-3.jpg",
+     "cap": ""
+    },
+    {
+     "img": "p45-4.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-09-27"
+  },
+  {
+   "id": 46,
+   "nome": "Edifício Roberto del Giúdice",
+   "cat": "Comercial",
+   "ano": "",
+   "desc": "Edifício comercial. Viçosa-MG.",
+   "img": "p46-1.jpg",
+   "imgs": [
+    {
+     "img": "p46-2.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-09-26"
+  },
+  {
+   "id": 47,
+   "nome": "Edifício Califórnia",
+   "cat": "Edifícios",
+   "ano": "2020",
+   "desc": "Edifício residencial. Viçosa-MG.",
+   "img": "p47-1.jpg",
+   "imgs": [
+    {
+     "img": "p47-2.jpg",
+     "cap": ""
+    }
+   ],
+   "post": "2023-09-23"
+  }
+ ],
+ "services": [
+  {
+   "n": "01",
+   "t": "Projeto arquitetônico",
+   "d": "Residencial, comercial e institucional, do estudo preliminar ao projeto executivo."
+  },
+  {
+   "n": "02",
+   "t": "Aprovação e regularização",
+   "d": "Projeto legal na Prefeitura, Habite-se e regularização de edificações conforme a legislação de Viçosa."
+  },
+  {
+   "n": "03",
+   "t": "Viabilidade urbanística",
+   "d": "Análise dos parâmetros do lote (zoneamento, ocupação, aproveitamento) antes de comprar ou projetar."
+  },
+  {
+   "n": "04",
+   "t": "Estabelecimentos de saúde",
+   "d": "Adequação de consultórios e clínicas às normas da Vigilância Sanitária."
+  },
+  {
+   "n": "05",
+   "t": "Interiores e acabamentos",
+   "d": "Layout, especificação e quantitativo de acabamentos."
+  },
+  {
+   "n": "06",
+   "t": "Projeto luminotécnico",
+   "d": "Iluminação por camadas, cálculo, cenas e orçamento."
+  }
+ ],
+ "gallery": [
+  {
+   "img": "g01.jpg",
+   "cap": "Edifício misto – Rua Virgílio Val"
+  },
+  {
+   "img": "g04.jpg",
+   "cap": "Residência em Viçosa"
+  },
+  {
+   "img": "g03.jpg",
+   "cap": "Edifício de uso misto – comercial e residencial"
+  },
+  {
+   "img": "g02.jpg",
+   "cap": "Edifício misto – Rua Virgílio Val"
+  },
+  {
+   "img": "g05.jpg",
+   "cap": "Residência em Viçosa"
+  },
+  {
+   "img": "g06.jpg",
+   "cap": "Residência em Viçosa"
+  },
+  {
+   "img": "g07.jpg",
+   "cap": "Edifício Residencial"
+  },
+  {
+   "img": "g08.jpg",
+   "cap": "Edifício Residencial"
+  },
+  {
+   "img": "g09.jpg",
+   "cap": "Residência em Araponga"
+  },
+  {
+   "img": "g10.jpg",
+   "cap": "Residência em Araponga"
+  },
+  {
+   "img": "g11.jpg",
+   "cap": "Espaço Gourmet"
+  },
+  {
+   "img": "g12.jpg",
+   "cap": "Espaço Gourmet"
+  },
+  {
+   "img": "g13.jpg",
+   "cap": "Condomínio Alameda Boulevard"
+  },
+  {
+   "img": "g14.jpg",
+   "cap": "Condomínio Alameda Boulevard"
+  },
+  {
+   "img": "g15.jpg",
+   "cap": "Residência em Viçosa"
+  },
+  {
+   "img": "g16.jpg",
+   "cap": "Residência em Viçosa"
+  },
+  {
+   "img": "g17.jpg",
+   "cap": "Edifício Chateau Duvalier"
+  },
+  {
+   "img": "g18.jpg",
+   "cap": "Edifício Chateau Duvalier"
+  },
+  {
+   "img": "g19.jpg",
+   "cap": "Edifício Alphaville"
+  },
+  {
+   "img": "g20.jpg",
+   "cap": "Edifício Alphaville"
+  },
+  {
+   "img": "g21.jpg",
+   "cap": "Edifício Airton Vidigal Santana"
+  },
+  {
+   "img": "g22.jpg",
+   "cap": "Edifício Airton Vidigal Santana"
+  },
+  {
+   "img": "g23.jpg",
+   "cap": "Residência em Viçosa"
+  },
+  {
+   "img": "g24.jpg",
+   "cap": "Residência em Viçosa"
+  },
+  {
+   "img": "g25.jpg",
+   "cap": "Residência em Patos de Minas"
+  },
+  {
+   "img": "g26.jpg",
+   "cap": "Residência em Patos de Minas"
+  },
+  {
+   "img": "g27.jpg",
+   "cap": "Residência em Patos de Minas"
+  },
+  {
+   "img": "g28.jpg",
+   "cap": "Residência em Viçosa"
+  },
+  {
+   "img": "g29.jpg",
+   "cap": "Edifício comercial e residencial"
+  },
+  {
+   "img": "g30.jpg",
+   "cap": "Edifício comercial e residencial"
+  },
+  {
+   "img": "g31.jpg",
+   "cap": "Edifício Prof. Marcondes"
+  },
+  {
+   "img": "g32.jpg",
+   "cap": "Edifício Prof. Marcondes"
+  }
+ ],
+ "process": [
+  {
+   "n": "01",
+   "t": "Briefing e viabilidade",
+   "d": "Conversa inicial, levantamento das necessidades e análise dos parâmetros do lote."
+  },
+  {
+   "n": "02",
+   "t": "Estudo preliminar",
+   "d": "Partido, implantação e volumetria, com ajustes até a aprovação do cliente."
+  },
+  {
+   "n": "03",
+   "t": "Projeto legal e executivo",
+   "d": "Aprovação na Prefeitura e detalhamento completo para a obra."
+  },
+  {
+   "n": "04",
+   "t": "Acompanhamento e entrega",
+   "d": "Visitas técnicas, compatibilização e Habite-se."
+  }
+ ],
+ "contact": {
+  "email": "claudiopupo@gmail.com",
+  "tel": "(31) 99245-1571",
+  "end": "Rua Dr. Milton Bandeira, 111 – Sala 712, Vereda do Bosque – Viçosa-MG",
+  "hora": "",
+  "ig": "https://instagram.com/claudiopupo_arquiteto",
+  "li": "",
+  "fb": "",
+  "briefing": "",
+  "viab": ""
+ }
+}
