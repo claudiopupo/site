@@ -1,6 +1,6 @@
 {
  "v": 2,
- "atualizado": "2026-11-19T01:59:57.794Z",
+ "atualizado": "2026-11-19T02:01:13.882Z",
  "heroTone": "claro",
  "fields": {
   "hero-tag": "Arquitetura e urbanismo · Viçosa-MG",
@@ -933,6 +933,10 @@
    "cap": "Edifício Residencial"
   },
   {
+   "img": "g13.jpg",
+   "cap": "Condomínio Alameda Boulevard"
+  },
+  {
    "img": "g09.jpg",
    "cap": "Residência em Araponga"
   },
@@ -941,20 +945,16 @@
    "cap": "Residência em Araponga"
   },
   {
+   "img": "g14.jpg",
+   "cap": "Condomínio Alameda Boulevard"
+  },
+  {
    "img": "g11.jpg",
    "cap": "Espaço Gourmet"
   },
   {
    "img": "g12.jpg",
    "cap": "Espaço Gourmet"
-  },
-  {
-   "img": "g13.jpg",
-   "cap": "Condomínio Alameda Boulevard"
-  },
-  {
-   "img": "g14.jpg",
-   "cap": "Condomínio Alameda Boulevard"
   },
   {
    "img": "g15.jpg",
