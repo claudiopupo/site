@@ -289,8 +289,26 @@ section h2,.sec-head h2{text-align:center}
 .foot-in{flex-direction:column;justify-content:center;align-items:center;text-align:center}
 .foot-in .t{text-align:center}
 @media(max-width:640px){.hero-brand{width:165px;margin-bottom:22px}.scap{align-items:center}.stat-v{font-size:1.35rem;white-space:nowrap}.stat-l{font-size:.76rem}}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
+/* painel de edição */
+.lbl{display:block;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dk);font-weight:500;margin-bottom:8px}
+.imgrows{display:grid;gap:8px;margin-bottom:10px;max-height:46vh;overflow:auto;padding-right:4px}
+.irow{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);padding:6px}
+.irow img{width:64px;height:48px;object-fit:cover;background:#e8eef0}
+.irow input{margin:0!important;padding:8px 10px!important;font-size:.92rem!important}
+.irow .ib{display:flex;gap:3px}
+.irow .ib button{width:30px;height:30px;border:1px solid var(--teal2);background:transparent;color:var(--teal-dk);cursor:pointer;font-size:.85rem}
+.irow .ib button:hover{background:var(--teal-dk);color:#fff}
+.det .dx figure{margin:0}
+.det .dx figcaption{font-size:.86rem;color:var(--gray-dk);padding:8px 2px 4px}
+.det .dedit{display:none;margin:0 34px 20px}
+body.edit .det .dedit{display:inline-block}
+.pbar{height:8px;background:#e1ecec;margin:14px 0}
+.pbar i{display:block;height:100%;width:0;background:var(--teal2);transition:width .25s}
+.editbar button.pri{background:#fff;color:var(--teal-dk);font-weight:600}
+.editbar .stat{font-weight:600}
+@media(max-width:640px){.irow{grid-template-columns:52px 1fr}.irow .ib{grid-column:1/-1;justify-content:flex-end}.irow img{width:52px;height:40px}.det .dedit{margin:0 20px 16px}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 /* ===== versão escura ===== */
 :root{--text:#e6e8e9;--gray-dk:#a7adaf;--line:#2a2e30;--teal-lt:#172a2b;--teal-dk:#6fd3cb;--teal-logo:#6cc2ae}
 body{background:#fff}
@@ -321,7 +339,12 @@ form input,form textarea,.modal input,.modal textarea,.modal select{background:#
 .stats{border-top-color:#2a2e30}
 .stat-v{color:var(--teal-dk)}
 .ctl button{background:#16191a}
+
+.irow{border-color:#2f3537}.irow img{background:#1a1f20}.irow .ib button{color:var(--teal-dk);border-color:#3a6b69}.lbl{color:var(--teal-dk)}
+.pbar{background:#2a2e30}.det .dx figcaption{color:#a7adaf}
 </style>
+<style>html.ld #page{opacity:0;animation:ldshow 0s 2.6s forwards}@keyframes ldshow{to{opacity:1}}#page{transition:opacity .35s}</style>
+<script>document.documentElement.className+=' ld'</script>
 </head>
 <body>
 
@@ -460,17 +483,20 @@ form input,form textarea,.modal input,.modal textarea,.modal select{background:#
 </div>
 
 <div class="editbar" id="editbar">
-  <span>Modo edição</span>
-  <button onclick="exportSite()">Baixar site atualizado (.html)</button>
-  <button onclick="exportJson()">Exportar dados</button>
-  <button onclick="$('#impFile').click()">Importar dados</button>
-  <button onclick="resetAll()">Restaurar padrão</button>
+  <span class="stat" id="pubstat">Modo edição</span>
+  <button class="pri" onclick="publish()">Publicar no site</button>
+  <button onclick="manageGallery()">Gerenciar galeria</button>
+  <button onclick="connectGh()">GitHub</button>
+  <button onclick="exportJson()">Backup</button>
+  <button onclick="$('#impFile').click()">Importar</button>
+  <button onclick="resetAll()">Descartar rascunho</button>
   <button onclick="toggleEdit()">Concluir</button>
   <input type="file" id="impFile" accept="application/json" style="display:none" onchange="importJson(this)">
 </div>
 
 <div class="overlay" id="modal"><div class="modal"><div class="mh"><h3 id="mtitle"></h3><button class="x" onclick="closeM('modal')" aria-label="Fechar">×</button></div><div id="mbody"></div></div></div>
 <div class="overlay" id="detail"><div class="modal wide det"><button class="x close" onclick="closeM('detail')" aria-label="Fechar">×</button><div id="dbody"></div></div></div>
+<div class="overlay" id="pub"><div class="modal"><div class="mh"><h3 id="ptitle">Publicando…</h3></div><div id="pbody"></div></div></div>
 <div class="toast" id="toast"></div>
 
 <script id="seed" type="application/json">
@@ -535,25 +561,26 @@ const SEEDIMG=[];(function w(o){if(o&&typeof o==='object'){for(const k in o){con
 const SEEDIDX=new Map();SEEDIMG.forEach((v,i)=>{if(!SEEDIDX.has(v))SEEDIDX.set(v,i)});
 function slim(o){if(Array.isArray(o))return o.map(slim);if(o&&typeof o==='object'){const r={};for(const k in o)r[k]=slim(o[k]);return r}return (typeof o==='string'&&SEEDIDX.has(o))?'~'+SEEDIDX.get(o):o}
 function fat(o){if(Array.isArray(o))return o.map(fat);if(o&&typeof o==='object'){const r={};for(const k in o)r[k]=fat(o[k]);return r}return (typeof o==='string'&&/^~\d+$/.test(o))?(SEEDIMG[+o.slice(1)]||''):o}
-function load(){
-  try{
-    const r=localStorage.getItem(KEY);
-    if(r){const s=fat(JSON.parse(r));
-      const im=Object.assign({},seed.images,s.images);if(!s.heroV3){im.hero=seed.images.hero}if(!s.heroInit&&!im.hero)im.hero=seed.images.hero;if(!s.fotoInit&&!im.foto)im.foto=seed.images.foto;
-      const gNew=s.galV!==2;
-      const phOnly=!s.projInit&&(!s.projects||s.projects.every(p=>/\(exemplo\)/.test(p.nome)));
-      return {heroV3:true,galV:2,projInit:true,fotoInit:true,heroInit:true,heroTone:s.heroTone||seed.heroTone,fields:Object.assign({},seed.fields,(s.fields?Object.assign({},s.fields,(phOnly||gNew)?{'galeria-titulo':seed.fields['galeria-titulo']}:{}):{})),images:im,
-        projects:phOnly?seed.projects:s.projects,services:s.services||seed.services,gallery:(gNew||(phOnly&&!(s.gallery&&s.gallery.length)))?seed.gallery:(s.gallery||seed.gallery),process:s.process||seed.process,contact:Object.assign({},seed.contact,s.contact)};}
-  }catch(e){}
-  const d=JSON.parse(JSON.stringify(seed));d.heroInit=true;d.fotoInit=true;d.projInit=true;d.galV=2;d.heroV3=true;return d;
+const normImgs=a=>(a||[]).map(x=>typeof x==='string'?{img:x,cap:''}:{img:x.img||'',cap:x.cap||''}).filter(x=>x.img);
+function merge(s){
+  s=s||{};const im=Object.assign({},seed.images);for(const k in (s.images||{}))if(s.images[k])im[k]=s.images[k];
+  return {heroTone:s.heroTone||seed.heroTone,fields:Object.assign({},seed.fields,s.fields),images:im,
+    projects:(s.projects||seed.projects).map(p=>Object.assign({},p,{imgs:normImgs(p.imgs)})),
+    services:s.services||seed.services,gallery:(s.gallery||seed.gallery).map(g=>({img:g.img,cap:g.cap||''})),
+    process:s.process||seed.process,contact:Object.assign({},seed.contact,s.contact)};
+}
+const isDirty=()=>{try{return localStorage.getItem('cp_dirty')==='1'}catch(e){return false}};
+function initialState(){
+  if(admin&&isDirty()){try{const r=localStorage.getItem(KEY);if(r)return merge(fat(JSON.parse(r)))}catch(e){}}
+  return merge(seed);
 }
 function toggleMenu(f){const b=document.getElementById('burger'),l=document.getElementById('navLinks');const o=typeof f==='boolean'?f:!l.classList.contains('open');l.classList.toggle('open',o);b.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}
 document.addEventListener('click',e=>{if(e.target.closest('#navLinks a'))toggleMenu(false)});
-let state=load(),edit=false,filtro='Todos';
-function save(){try{localStorage.setItem(KEY,JSON.stringify(slim(state)))}catch(e){toast('Armazenamento do navegador cheio. Use fotos menores ou baixe o site atualizado.')}}
-
 try{if(/[?&]editar/.test(location.search))localStorage.setItem('cp_admin','1')}catch(e){}
 let admin=false;try{admin=localStorage.getItem('cp_admin')==='1'}catch(e){}
+let state=initialState(),edit=false,filtro='Todos';
+function save(){try{localStorage.setItem(KEY,JSON.stringify(slim(state)));if(admin)localStorage.setItem('cp_dirty','1')}catch(e){toast('Armazenamento do navegador cheio. Publique agora ou use fotos menores.')}updateStat()}
+function updateStat(){const e=$('#pubstat');if(e)e.textContent=isDirty()?'Alterações não publicadas':(ghTok()?'Tudo publicado':'GitHub não conectado')}
 
 document.querySelectorAll('[data-logo]').forEach(i=>i.src=LOGO);
 document.querySelectorAll('[data-logoc]').forEach(i=>i.src=LOGOC);
@@ -620,7 +647,7 @@ const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 let galPos=0,galPaused=reduce,galHover=false,galVis=true;
 function renderGallery(){
   const g=state.gallery,real=g.length>0,items=real?g:Array.from({length:6},()=>({img:'',cap:''}));
-  const one=(x,i,dup)=>`<div class="gi"${dup?' aria-hidden="true"':''}><div class="gimg">${x.img?`<img class="real" draggable="false" loading="lazy" src="${esc(x.img)}" alt="${esc(x.cap)}">`:`<img class="ph" draggable="false" src="${LOGOC}" alt="">`}</div><div class="gcap">${esc(x.cap)}</div>${(!dup&&real)?`<div class="ctl"><button onclick="editGallery(${i})">Editar</button></div>`:''}</div>`;
+  const one=(x,i,dup)=>`<div class="gi"${dup?' aria-hidden="true"':''}><div class="gimg">${x.img?`<img class="real" draggable="false" loading="lazy" src="${esc(x.img)}" alt="${esc(x.cap)}">`:`<img class="ph" draggable="false" src="${LOGOC}" alt="">`}</div><div class="gcap">${esc(x.cap)}</div>${(!dup&&real)?`<div class="ctl"><button onclick="moveGal(${i},-1)">←</button><button onclick="moveGal(${i},1)">→</button><button onclick="editGallery(${i})">Editar</button></div>`:''}</div>`;
   $('#strip').innerHTML=items.map((x,i)=>one(x,i,false)).join('')+items.map((x,i)=>one(x,i,true)).join('');
   $('#galPlay').textContent=galPaused?'Reproduzir':'Pausar';
 }
@@ -633,10 +660,17 @@ function galLoop(){
   requestAnimationFrame(galLoop);
 }
 async function addGallery(inp){
-  const files=[...inp.files];let n=0;
-  for(const f of files){try{state.gallery.push({img:await readImage(f,1200,.75),cap:''});n++}catch(e){}}
-  inp.value='';save();renderGallery();toast(n+' foto(s) adicionada(s).');
+  const items=[];
+  for(const f of [...inp.files]){try{items.push({img:await readImage(f,1400,.8),cap:''})}catch(e){}}
+  inp.value='';if(!items.length)return;
+  openForm({title:'Adicionar à galeria',hint:'Escreva a legenda de cada foto (opcional). Use ↑ ↓ para ordenar.',fields:[{k:'list',label:'Fotos novas',type:'imgs',max:1400}],values:{list:items},
+    onSave:o=>{state.gallery.push(...o.list);save();renderGallery();toast(o.list.length+' foto(s) adicionada(s). Clique em "Publicar no site".')}});
 }
+function manageGallery(){
+  openForm({title:'Gerenciar galeria',hint:'Edite legendas, mude a ordem, remova ou adicione fotos. Depois clique em "Publicar no site".',fields:[{k:'list',label:'Fotos da galeria',type:'imgs',max:1400}],values:{list:state.gallery},
+    onSave:o=>{state.gallery=o.list;save();renderGallery()}});
+}
+function moveGal(i,d){const a=state.gallery,j=i+d;if(j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]];save();renderGallery()}
 function editGallery(i){
   const g=state.gallery[i];if(!g)return;
   openForm({title:'Editar foto',fields:[{k:'img',label:'Imagem',type:'img',max:1200},{k:'cap',label:'Legenda (opcional)'}],values:g,
@@ -709,7 +743,8 @@ function showProject(id){
   const p=state.projects.find(x=>x.id===id);if(!p)return;
   $('#dbody').innerHTML=(p.img?`<img src="${esc(p.img)}" alt="${esc(p.nome)}">`:`<div class="dph"><img src="${LOGOC}" alt=""></div>`)+
    `<div class="dt"><div class="cat">${esc(p.cat)}</div><h3>${esc(p.nome)}</h3><div class="ano">${esc(p.ano)}</div>${p.desc?`<p>${esc(p.desc)}</p>`:''}</div>`+
-   ((p.imgs&&p.imgs.length)?`<div class="dx">${p.imgs.map(u=>`<img loading="lazy" src="${esc(u)}" alt="${esc(p.nome)}">`).join('')}</div>`:'');
+   ((p.imgs&&p.imgs.length)?`<div class="dx">${p.imgs.map(x=>`<figure><img loading="lazy" src="${esc(x.img)}" alt="${esc(x.cap||p.nome)}">${x.cap?`<figcaption>${esc(x.cap)}</figcaption>`:''}</figure>`).join('')}</div>`:'')+
+   `<button class="btn sm fill dedit" onclick="closeM('detail');editProject(${p.id})">Editar este projeto</button>`;
   $('#detail .modal').scrollTop=0;
   $('#detail').classList.add('open');
 }
@@ -733,7 +768,8 @@ function openForm({title,hint,fields,values={},onSave,onDelete}){
   $('#mbody').innerHTML=(hint?`<p class="hint">${esc(hint)}</p>`:'')+fields.map(f=>{
     const v=values[f.k]==null?'':String(values[f.k]),id='f_'+f.k;
     if(f.type==='area')return `<label>${esc(f.label)}<textarea id="${id}" rows="${f.rows||4}">${esc(v)}</textarea></label>`;
-    if(f.type==='imgs'){store[f.k]=Array.isArray(values[f.k])?values[f.k].slice():[];return `<label>${esc(f.label)}<div class="imgf"><span class="hint" id="${id}_n"></span><input type="file" accept="image/*" multiple id="${id}_f"><button type="button" class="btn sm" id="${id}_c" style="margin-top:8px">Remover todas as fotos extras</button></div></label>`}
+    if(f.type==='imgs'){store[f.k]=normImgs(values[f.k]);return `<div class="lbl">${esc(f.label)}</div><div class="imgrows" id="${id}_rows"></div><div class="imgf"><input type="file" accept="image/*" multiple id="${id}_f"></div><div style="height:12px"></div>`}
+    if(f.type==='password')return `<label>${esc(f.label)}<input id="${id}" type="password" autocomplete="off" value="${esc(v)}"></label>`;
     if(f.type==='img'){if(v.startsWith('data:'))store[f.k]=v;
       return `<label>${esc(f.label)}<div class="imgf"><input id="${id}" type="text" placeholder="Cole um link ou envie um arquivo abaixo" value="${v.startsWith('data:')?'(imagem enviada)':esc(v)}"><input type="file" accept="image/*" id="${id}_f"></div></label>`}
     return `<label>${esc(f.label)}<input id="${id}" type="text" value="${esc(v)}"></label>`;
@@ -744,12 +780,15 @@ function openForm({title,hint,fields,values={},onSave,onDelete}){
     $('#f_'+f.k).oninput=()=>{delete store[f.k]};
   });
   fields.filter(f=>f.type==='imgs').forEach(f=>{
-    const n=()=>{$('#f_'+f.k+'_n').textContent=store[f.k].length+' foto(s) extra(s) no carrossel'};n();
-    $('#f_'+f.k+'_f').onchange=async e=>{for(const file of e.target.files){try{store[f.k].push(await readImage(file,1000,.66))}catch(_){toast('Não consegui ler uma das imagens')}}e.target.value='';n()};
-    $('#f_'+f.k+'_c').onclick=()=>{store[f.k]=[];n()};
+    const draw=()=>{const box=$('#f_'+f.k+'_rows'),a=store[f.k];
+      box.innerHTML=a.map((x,i)=>`<div class="irow"><img src="${esc(x.img)}" alt=""><input type="text" data-i="${i}" placeholder="Legenda (opcional)" value="${esc(x.cap)}"><div class="ib"><button type="button" data-a="u" data-i="${i}" title="Subir">↑</button><button type="button" data-a="d" data-i="${i}" title="Descer">↓</button><button type="button" data-a="x" data-i="${i}" title="Remover">✕</button></div></div>`).join('')||'<p class="hint">Nenhuma foto. Use o campo abaixo para adicionar.</p>';
+      box.querySelectorAll('input[data-i]').forEach(inp=>inp.oninput=()=>{a[+inp.dataset.i].cap=inp.value});
+      box.querySelectorAll('button').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;if(b.dataset.a==='x')a.splice(i,1);else{const j=i+(b.dataset.a==='u'?-1:1);if(j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]]}draw()})};
+    draw();
+    $('#f_'+f.k+'_f').onchange=async e=>{for(const file of e.target.files){try{store[f.k].push({img:await readImage(file,f.max||1600,.8),cap:''})}catch(_){toast('Não consegui ler uma das imagens')}}e.target.value='';draw()};
   });
   $('#msave').onclick=()=>{
-    const out={};fields.forEach(f=>{out[f.k]=f.type==='imgs'?store[f.k]:(f.type==='img'&&store[f.k]!==undefined)?store[f.k]:$('#f_'+f.k).value.trim()});
+    const out={};fields.forEach(f=>{out[f.k]=f.type==='imgs'?store[f.k].filter(x=>x.img):(f.type==='img'&&store[f.k]!==undefined)?store[f.k]:$('#f_'+f.k).value.trim()});
     if(onSave(out)!==false)closeM('modal');
   };
   if(onDelete)$('#mdel').onclick=()=>{if(confirm('Excluir definitivamente?')){onDelete();closeM('modal')}};
@@ -777,7 +816,7 @@ function editProject(id){
   const p=id?state.projects.find(x=>x.id===id):null;
   openForm({title:p?'Editar projeto':'Novo projeto',
     fields:[{k:'nome',label:'Nome'},{k:'cat',label:'Categoria (ex.: Residencial, Comercial, Saúde)'},{k:'ano',label:'Ano'},
-      {k:'desc',label:'Descrição',type:'area',rows:5},{k:'img',label:'Foto de capa',type:'img'},{k:'imgs',label:'Fotos do carrossel (aparecem ao abrir o projeto)',type:'imgs'}],
+      {k:'desc',label:'Descrição (texto que aparece ao abrir o projeto)',type:'area',rows:7},{k:'img',label:'Foto de capa',type:'img'},{k:'imgs',label:'Fotos extras do projeto, com legenda (aparecem ao abrir o projeto)',type:'imgs',max:1600}],
     values:p||{ano:String(new Date().getFullYear())},
     onSave:o=>{if(!o.nome){toast('Informe o nome do projeto');return false}
       o.cat=o.cat||'Projeto';
@@ -808,8 +847,8 @@ function toggleEdit(){
   edit=!edit;document.body.classList.toggle('edit',edit);
   $('#editBtn').textContent=edit?'Concluir':'Editar';
   ['addProj','addSvc','addGal','addStep','heroBtn','toneBtn'].forEach(id=>$('#'+id).style.display=edit?'inline-block':'none');
-  renderContact();
-  toast(edit?'Modo edição: clique nos textos, na foto e nos cards.':'Alterações salvas neste navegador. Use "Baixar site atualizado" para publicar.');
+  renderContact();updateStat();
+  toast(edit?'Modo edição: clique nos textos, projetos e fotos. Ao terminar, clique em "Publicar no site".':(isDirty()?'Você tem alterações não publicadas. Use "Publicar no site" quando quiser.':'Modo edição encerrado.'));
 }
 
 /* ---------- exportar / importar ---------- */
@@ -830,12 +869,66 @@ function exportSite(){
 function exportJson(){download('portfolio-dados.json',JSON.stringify(state,null,1),'application/json');toast('Dados exportados (backup).')}
 function importJson(inp){
   const f=inp.files[0];if(!f)return;
-  f.text().then(t=>{const s=JSON.parse(t);
-    state={fotoInit:true,heroInit:true,heroTone:s.heroTone||'claro',fields:Object.assign({},seed.fields,s.fields),images:Object.assign({},seed.images,s.images),projects:s.projects||[],services:s.services||[],gallery:s.gallery||[],process:s.process||seed.process,contact:Object.assign({},seed.contact,s.contact)};
-    save();renderAll();toast('Dados importados.')}).catch(()=>toast('Arquivo inválido.'));
+  f.text().then(t=>{state=merge(JSON.parse(t));save();renderAll();toast('Dados importados. Clique em "Publicar no site" para enviar.')}).catch(()=>toast('Arquivo inválido.'));
   inp.value='';
 }
-function resetAll(){if(confirm('Descartar todas as edições deste navegador e voltar ao conteúdo padrão?')){try{localStorage.removeItem(KEY)}catch(e){}state=JSON.parse(JSON.stringify(seed));renderAll()}}
+function resetAll(){if(confirm('Descartar as alterações ainda não publicadas e voltar ao que está no ar?')){try{localStorage.removeItem(KEY);localStorage.removeItem('cp_dirty')}catch(e){}location.reload()}}
+
+/* ---------- publicação direta no GitHub (um único commit) ---------- */
+const ghCfg=()=>{const d={owner:'claudiopupo',repo:'site',branch:'main'};try{return Object.assign(d,JSON.parse(localStorage.getItem('cp_gh_cfg')||'{}'))}catch(e){return d}};
+const ghTok=()=>{try{return localStorage.getItem('cp_gh_token')||''}catch(e){return ''}};
+async function gh(path,method,body){
+  const c=ghCfg(),r=await fetch('https://api.github.com/repos/'+c.owner+'/'+c.repo+path,{method:method||'GET',headers:{Authorization:'Bearer '+ghTok(),Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'},body:body?JSON.stringify(body):undefined});
+  if(!r.ok){const t=await r.json().catch(()=>({}));const e=new Error(t.message||('HTTP '+r.status));e.status=r.status;throw e}
+  return r.json();
+}
+function connectGh(thenPublish){
+  const c=ghCfg();
+  openForm({title:'Conectar ao GitHub',
+    hint:'Uma vez só: no GitHub, abra Settings > Developer settings > Personal access tokens > Fine-grained tokens > Generate new token. Em Repository access escolha "Only select repositories" > '+c.owner+'/'+c.repo+'. Em Permissions > Repository permissions deixe "Contents" como Read and write. Copie o token e cole abaixo. Ele fica salvo só neste navegador.',
+    fields:[{k:'tok',label:'Token de acesso',type:'password'},{k:'owner',label:'Usuário do GitHub'},{k:'repo',label:'Repositório'},{k:'branch',label:'Branch'}],
+    values:{tok:'',owner:c.owner,repo:c.repo,branch:c.branch},
+    onSave:o=>{
+      try{localStorage.setItem('cp_gh_cfg',JSON.stringify({owner:o.owner||c.owner,repo:o.repo||c.repo,branch:o.branch||c.branch}));if(o.tok)localStorage.setItem('cp_gh_token',o.tok)}catch(e){}
+      if(!ghTok()){toast('Cole o token para conectar.');return}
+      gh('').then(r=>{toast('Conectado a '+r.full_name+(r.permissions&&!r.permissions.push?' (sem permissão de escrita!)':'.'));updateStat();if(thenPublish)publish()}).catch(e=>toast('Não conectou: '+(e.status===401?'token inválido ou expirado.':e.status===404?'repositório não encontrado ou token sem acesso a ele.':e.message)));
+    },
+    onDelete:ghTok()?()=>{try{localStorage.removeItem('cp_gh_token')}catch(e){}updateStat();toast('Token removido deste navegador.')}:null});
+}
+const utf8b64=t=>{const b=new TextEncoder().encode(t);let s='';for(let i=0;i<b.length;i+=0x8000)s+=String.fromCharCode.apply(null,b.subarray(i,i+0x8000));return btoa(s)};
+function pubUI(title,pct,msg){$('#ptitle').textContent=title;$('#pbody').innerHTML=`<div class="pbar"><i style="width:${pct}%"></i></div><p class="hint">${esc(msg)}</p>`;$('#pub').classList.add('open')}
+let publishing=false;
+async function publish(){
+  if(publishing)return;
+  if(!ghTok()){connectGh(true);return}
+  publishing=true;
+  try{
+    const next=JSON.parse(JSON.stringify(state)),files=[],map=new Map();let n=0;
+    const up=v=>{if(typeof v!=='string'||!v.startsWith('data:'))return v;if(!map.has(v)){const p='fotos/'+Date.now().toString(36)+'-'+(n++)+'.jpg';map.set(v,p);files.push({path:p,b64:v.split(',')[1]})}return map.get(v)};
+    for(const k in next.images)next.images[k]=up(next.images[k]);
+    next.projects.forEach(p=>{p.img=up(p.img);p.imgs.forEach(x=>x.img=up(x.img))});
+    next.gallery.forEach(g=>g.img=up(g.img));
+    const dados={v:2,atualizado:new Date().toISOString(),heroTone:next.heroTone,fields:next.fields,images:next.images,projects:next.projects,services:next.services,gallery:next.gallery,process:next.process,contact:next.contact};
+    files.push({path:'dados.json',b64:utf8b64(JSON.stringify(dados,null,1))});
+    const c=ghCfg(),total=files.length+4;let done=0;const step=m=>pubUI('Publicando…',Math.round(++done/total*100),m);
+    pubUI('Publicando…',2,'Conectando ao GitHub…');
+    const ref=await gh('/git/ref/heads/'+c.branch);step('Preparando…');
+    const cm=await gh('/git/commits/'+ref.object.sha);
+    const tree=[];
+    for(const f of files){const b=await gh('/git/blobs','POST',{content:f.b64,encoding:'base64'});tree.push({path:f.path,mode:'100644',type:'blob',sha:b.sha});step('Enviando '+f.path+' ('+tree.length+'/'+files.length+')')}
+    const t=await gh('/git/trees','POST',{base_tree:cm.tree.sha,tree});step('Montando versão…');
+    const nc=await gh('/git/commits','POST',{message:'Atualização do portfólio pelo painel',tree:t.sha,parents:[ref.object.sha]});
+    await gh('/git/refs/heads/'+c.branch,'PATCH',{sha:nc.sha});
+    state=merge(dados);try{localStorage.removeItem(KEY);localStorage.removeItem('cp_dirty')}catch(e){}
+    renderAll();updateStat();
+    pubUI('Publicado',100,'Alterações enviadas. O site público atualiza em 1 a 3 minutos (atualize com Ctrl+F5).');
+    setTimeout(()=>closeM('pub'),3500);
+  }catch(e){
+    const m=e.status===401?'Token inválido ou expirado. Clique em GitHub para reconectar.':e.status===403||e.status===404?'Sem permissão de escrita no repositório. Confira o token (Contents: Read and write) e o nome do repositório.':(e.message||'erro desconhecido');
+    pubUI('Não foi possível publicar',0,m+' Suas alterações continuam salvas neste navegador.');
+  }
+  publishing=false;
+}
 
 /* ---------- contato ---------- */
 function sendWa(){
@@ -865,7 +958,18 @@ async function sendForm(e){
 }
 let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),3600)}
 
-renderAll();
+async function loadRemote(){
+  let d=null;
+  try{
+    if(admin&&ghTok()){const c=ghCfg(),r=await fetch('https://api.github.com/repos/'+c.owner+'/'+c.repo+'/contents/dados.json?ref='+c.branch,{headers:{Authorization:'Bearer '+ghTok(),Accept:'application/vnd.github.raw+json'}});if(r.ok)d=await r.json()}
+    if(!d){const r=await fetch('dados.json',{cache:'no-cache'});if(r.ok)d=await r.json()}
+  }catch(e){}
+  return d;
+}
+{const p=loadRemote();
+ p.then(d=>{if(d&&!(admin&&isDirty())){state=merge(d);renderAll()}});
+ Promise.race([p,new Promise(r=>setTimeout(r,1800))]).then(()=>requestAnimationFrame(()=>document.documentElement.classList.remove('ld')));}
+renderAll();updateStat();
 dragScroll($('#slides'));dragScroll($('#strip'));
 let rafC=0;$('#slides').addEventListener('scroll',()=>{cancelAnimationFrame(rafC);rafC=requestAnimationFrame(updateCount)},{passive:true});
 const strip=$('#strip');
